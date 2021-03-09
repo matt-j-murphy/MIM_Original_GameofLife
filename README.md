@@ -1,7 +1,9 @@
 # MIM_Original_GameofLife
 
+**NOTE: Run CHECK_NEIGHBORS and SHOW_STUFF first. Then, you can run GAME_OF_LIFE to display the game!**
 
 Conway's Game of Life
+
 
 Group Members:
 1. Matthew Murphy
