@@ -1,6 +1,10 @@
+%This code was written by Matthew Murphy.
+
+%This section displays the new_gen matrix as an image consisting of black and white cells.
+
 function [] = show_stuff(new_gen)
 imagesc(new_gen);
-colormap gray
+colormap gray %display the cells as black and white%
 axis off
 drawnow
 end
