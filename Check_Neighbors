@@ -1,45 +1,51 @@
 %This code was pair-programmed by Matthew Murphy and Miriam Arden.
 
+%The function "check_neighbors" takes the current generation of cells as input, applies a series of rules, and outputs the new generation of cells.
 function [new_gen] = check_neighbors(current_gen)
 
-new_gen = zeros(100);
-for m = 2:99 %for rows 1 through 100
-	for n = 2:99 %for columns 1 through 100
-        neighbors = 0;
-	%count number of neighbors%
-		if current_gen(m-1,n-1) == 1
+new_gen = zeros(100); %initial the new generation
+
+%These "for" loops goes through each cell of the matrix individually. Within the loop, we determine the status of the cell in the current generation as well as the status of the cell in the new generation based on the number of live neighbors it has.
+for m = 2:99 %for the rows of the array
+	for n = 2:99 %for the columns of the array
+        neighbors = 0; %initialize the number of neighbors
+	
+	%This section counts the number of live neighbors that cell (m,n) has.%
+		if current_gen(m-1,n-1) == 1 %bottom left%
             		neighbors = neighbors+1;
         	end
 	
-		if current_gen(m-1,n) == 1
+		if current_gen(m-1,n) == 1 %directly left%
 			neighbors = neighbors+1;
 		end
 	
-		if current_gen(m-1,n+1) == 1
+		if current_gen(m-1,n+1) == 1 %upper left%
    			neighbors = neighbors+1;
 		end
 	
-		if current_gen(m,n-1) == 1
+		if current_gen(m,n-1) == 1 %directly below%
 			neighbors = neighbors+1;
 		end
 	
-		if current_gen(m,n+1) == 1
+		if current_gen(m,n+1) == 1 %directly above%
 			neighbors = neighbors+1;
 		end
 	
-		if current_gen(m+1,n-1) == 1
+		if current_gen(m+1,n-1) == 1 %bottom right%
 			neighbors = neighbors+1;
 		end
 	
-		if current_gen(m+1,n) == 1
+		if current_gen(m+1,n) == 1 %directly right%
 			neighbors = neighbors+1;
 		end
 		
-		if current_gen(m+1,n+1) == 1
+		if current_gen(m+1,n+1) == 1 %upper right%
            		neighbors = neighbors+1;
         	end
         
-       		%determine if cells should live or die
+       		%This section determines if cell (m,n) hould live or die based on the number of live neighbors it has.
+		
+		%If cell (m,n) is alive and has less than 2 or more than 3 neighbors, then it dies. If it has exactly 2 or 3 neighbors, it lives.
         	if current_gen(m,n) == 1
 			if (neighbors < 2 || neighbors >3)
                 		new_gen(m,n) = 0;
@@ -48,6 +54,8 @@ for m = 2:99 %for rows 1 through 100
             		if (neighbors == 2 || neighbors == 3)
                 		new_gen(m,n) = 1;
             		end 
+		
+		%If cell (m,n) is dead and has exactly 3 neighbors, then it comes alive. Otherwise, it remainds dead.
         	elseif current_gen(m,n) == 0
             		if neighbors == 3
                 		new_gen(m,n) = 1;
