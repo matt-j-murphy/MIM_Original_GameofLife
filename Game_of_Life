@@ -1,10 +1,13 @@
-function [] = game_of_life()
-current_gen = randi([0,1],100);
-imagesc(current_gen); %creates an initial generation matrix of random 0’s and 1’s
+%This code was pair-programmed by Matthew Murphy and Miriam Arden.
 
+function [] = game_of_life()
+current_gen = randi([0,1],100) %creates an initial generation matrix of random 0’s and 1’s
+imagesc(current_gen); 
+
+%The following loop runs forever. It applies the function "check_neighbors" to the current generation of cells and outputs a new generation of cells. This new generation then becomes the current generation for the subsequent iteration, and the loop repeats.
 while true
     [new_gen] = check_neighbors(current_gen);
     current_gen = new_gen;
 end
 
-end
+end %end function
