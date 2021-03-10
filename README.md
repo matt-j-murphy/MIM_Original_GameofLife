@@ -1,7 +1,5 @@
 # MIM_Original_GameofLife
 
-**NOTE: Run CHECK_NEIGHBORS and SHOW_STUFF first. Then, you can run GAME_OF_LIFE to display the game!**
-
 Conway's Game of Life
 
 
@@ -10,6 +8,8 @@ Group Members:
 2. Isabel Riches
 3. Miriam Arden
 
+Directions:
+Run the function "game_of_life" to play the game. A window with figure 1 should pop up.
 
 Rules:
 - Live cells with fewer than 2 adjacent live neighbors die
