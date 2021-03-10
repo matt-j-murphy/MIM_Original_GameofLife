@@ -1,3 +1,5 @@
+%This code was pair-programmed by Matthew Murphy and Miriam Arden.
+
 function [new_gen] = check_neighbors(current_gen)
 
 new_gen = zeros(100);
